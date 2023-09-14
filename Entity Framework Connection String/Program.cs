@@ -8,6 +8,28 @@ using System.Linq;
 // SQL Server Management Studio - Database app
 // SQL Server Profiler - app for tracing SQL Database
 
+/*  AppConfig
+ *  
+ *  <?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<configSections>
+		<section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.4.4, Culture=neutral"/>
+	</configSections>
+	<entityFramework>
+		<defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework"/>
+		<providers>
+			<provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer"/>
+		</providers>
+	</entityFramework>
+<connectionStrings>
+	<add name="MeContext" connectionString="Data Source=.;Initial Catalog=MyTestDb;Integrated Security=True" providerName="System.Data.SqlClient"/>
+</connectionStrings>
+</configuration>
+ * 
+ * 
+ */
+
+
 class Video
 {
     public int ID { get; set; }
@@ -18,9 +40,9 @@ class Video
 class MeContext : DbContext
 {
     //public MeContext() : base(@"Data Source=.;Initial Catalog=MyTestDb;username = whateverUsername;password = yadayadayada")
-    //public MeContext() : base(@"Data Source=.;Initial Catalog=MyTestDb;Integrated Security=True")
-    //{
-    //}
+    public MeContext() : base(@"Data Source=.;Initial Catalog=MyTestDb;Integrated Security=True")
+    {
+    }
     public DbSet<Video> Videos { get; set; }
 }
 
