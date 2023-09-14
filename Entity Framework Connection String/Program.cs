@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 //ref link:https://www.youtube.com/watch?v=EG3GykWhuR8&list=PLRwVmtr-pp06bXl6mbwDfK1eW9sAIvWUZ&index=3
 // EntityFramework - is a object relational mapping(ORM) data tool
@@ -27,16 +28,22 @@ class MainClass
 {
     static void Main()
     {
-        var vid = new Video
-        {
-            Title = "Hello World Entity Framework",
-            Description = "Learn about the entity framework"
-        };
+        //var vid = new Video
+        //{
+        //    Title = "Hello World Entity Framework",
+        //    Description = "Learn about the entity framework"
+        //};
         var meContext = new MeContext();
+        Video meVideo = meContext.Videos.Single();
+        Console.WriteLine(meVideo.ID);
+        Console.WriteLine(meVideo.Title);
+        Console.WriteLine(meVideo.Description);
+
+
 
         //meContext.Database.Delete();
 
-        meContext.Videos.Add(vid);
-        meContext.SaveChanges();
+        //meContext.Videos.Add(vid);
+        //meContext.SaveChanges();
     }
 }
