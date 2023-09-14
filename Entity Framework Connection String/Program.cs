@@ -16,7 +16,7 @@ class Video
 
 class MeContext : DbContext
 {
-    //public MeContext() : base(@"Data Source=.;Initial Catalog=KulpotDB;Integrated Security=True")
+    //public MeContext() : base(@"Data Source=.;Initial Catalog=KulpotDB;username = whateverUsername;password = yadayadayada")
     public MeContext() : base(@"Data Source=.;Initial Catalog=MyTestDb;Integrated Security=True")
     {
 
